@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Felder erstellen</title>
+</head>
+<style>
+   body {
+            background-image: url('herr.png');
+        }
+</style>
+<body>
+
+    <label for="feld1">Min</label>
+    <input type="number" id="feld1"><br><br>
+
+    <label for="feld2">Max</label>
+    <input type="number" id="feld2"><br><br>
+
+    <label for="feld3">Random</label>
+    <input type="number" id="feld3" readonly><br><br>
+
+    <button onclick="zeigeWerte()">random</button>
+
+    <script>
+        function zeigeWerte() {
+            var wert1 = parseInt(document.getElementById("feld1").value);
+            var wert2 = parseInt(document.getElementById("feld2").value);
+
+            if (isNaN(wert1) || isNaN(wert2)) {
+                alert("Bitte fülle Feld 1 und Feld 2 mit Zahlen aus.");
+                return;
+            }
+
+            var zufallszahl = Math.floor(Math.random() * (Math.max(wert1, wert2) - Math.min(wert1, wert2) + 1)) + Math.min(wert1, wert2);
+
+            document.getElementById("feld3").value = zufallszahl;
+        }
+    </script>
+
+</body>
+</html>
